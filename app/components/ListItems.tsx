@@ -1,19 +1,22 @@
 import { Feather } from "@expo/vector-icons";
 import React, { FC } from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { WeatherData } from "../utils/types";
+import {  WeatherItem } from "../utils/types";
+import { weatherType, WeatherCondition } from "../utils/weatherTypes";
 
-const ListItems: FC<WeatherData> = (props) => {
-    const { alerts, daily, hourly, minutely, current } = props;
+
+const ListItems: FC<WeatherItem> = (props) => {
+    const {dt, clouds, weather, main, wind } = props;
     const {item, words, daiy, temp} =styles
     return (
       <View style={item}>
-        <Feather name="sun" size={50} color="#A89C68" />
-        <Text style={words}>{alerts[0].event}</Text>
-        <Text style={daiy}>{daily[0].sunrise}</Text>
-        <Text style={temp}>{hourly[0].temp}</Text>
-        <Text style={words}>{minutely[0].precipitation}</Text>
-        <Text style={temp}>{current.temp}</Text>
+        <Feather name={weatherType[weather.main]?.icon} size={50} color="#A89C68" />
+        <Text style={words}>{dt}</Text>
+        <Text style={daiy}>{weather.description}</Text>
+        <Text style={temp}>{main.feels_like}</Text>
+        <Text style={words}>{clouds.all}</Text>
+        <Text style={temp}>{wind.speed}</Text>
+        
       </View>
     );
   };

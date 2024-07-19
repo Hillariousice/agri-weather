@@ -1,24 +1,32 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-const IconText = (props: any) =>{
-    const { iconName, textBody, iconColor, textBodyStyles} = props
-return(
+interface IconTextProps {
+  iconName: React.ComponentProps<typeof Feather>['name'];
+  textBody: string;
+  iconColor?: string;
+  textBodyStyles?: object;
+}
+
+const IconText: React.FC<IconTextProps> = ({ iconName, textBody, iconColor = 'black', textBodyStyles }) => {
+  return (
     <View style={styles.con}>
       <Feather name={iconName} size={30} color={iconColor} />
-      <Text style={[styles.textTheme,textBodyStyles]}>{textBody}</Text>
+      <Text style={[styles.textTheme, textBodyStyles]}>{textBody}</Text>
     </View>
-)
-}
-const styles= StyleSheet.create({
- con:{
-    flex : 1,
+  );
+};
+
+const styles = StyleSheet.create({
+  con: {
+    flex: 1,
     alignItems: 'center',
- },
- textTheme: {
+  },
+  textTheme: {
     fontWeight: 'bold',
     color: 'white',
- }
-})
-export default IconText
+  },
+});
+
+export default IconText;

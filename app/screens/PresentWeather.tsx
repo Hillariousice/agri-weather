@@ -2,20 +2,25 @@ import React from 'react'
 import {View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import {Feather} from '@expo/vector-icons'
 import RowText from '../components/RowText'
+import { WeatherCondition, weatherType } from '../utils/weatherTypes'
+import { PresentWeatherProps } from '../utils/types'
 
-const PresentWeather = () =>{
+const PresentWeather = ({ weatherData }: { weatherData: PresentWeatherProps }) =>{
+    const { main: { temp, feels_like, temp_max, temp_min, pressure,humidity }, weather } = weatherData
+    const weatherCondition = weather[0]?.main as WeatherCondition
     const {wrapper, temper, looks,container, wind, aptitude, press, humi, bodyRapper, details, comment}= styles
     return (
-        <SafeAreaView style={wrapper}>
+        <SafeAreaView style={[wrapper,
+        {backgroundColor: weatherType[weatherCondition]?.backgroundColor}]}>
            <View style={container}>
-            <Feather name="cloud" size={100} color="white" />
-            <Text style={temper}>25°C</Text>
-            <Text style={looks}>Cloudy</Text>
-            <RowText    messageOne={'Wind: 5km/h'}  messageTwo={'Humidity: 50%'} messageThree={'Pressure: 1013hPa'} conStyle={aptitude} messageOneStyle={wind}
+            <Feather name={weatherType[weatherCondition]?.icon}size={100} color="white" />
+            <Text style={temper}>{`${temp}°`}</Text>
+            <Text style={looks}>{`Feels like: ${feels_like}°`}</Text>
+            <RowText    messageOne={`High: ${temp_max}° `}  messageTwo={`Low: ${temp_min}°`}messageThree={`Pressure: ${pressure}`} conStyle={aptitude} messageOneStyle={wind}
             messageTwoStyle={humi} messageThreeStylr={press}/>
             
             </View>
-            <RowText messageOne={'Its cloudy'} messageTwo={'Go check on crops'} messageThree={''} conStyle={bodyRapper} messageOneStyle={details}
+            <RowText messageOne={weather[0]?.description} messageTwo={weather[0]?.description} messageThree={`Humidity:${humidity}`} conStyle={bodyRapper} messageOneStyle={details}
             messageTwoStyle={comment}/> 
                      
         </SafeAreaView>

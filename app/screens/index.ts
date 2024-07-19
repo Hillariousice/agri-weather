@@ -1,3 +1,3 @@
-export * as Farm from './Farm'
-export * as IncomingWeather from './IncomingWeather' 
-export * as PresentWeather  from './PresentWeather'
+export * from './Farm'
+export *  from './IncomingWeather' 
+export * from './PresentWeather'

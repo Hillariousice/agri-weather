@@ -2,20 +2,23 @@ import React from "react"
 import {View, SafeAreaView, Text, StyleSheet, ImageBackground, StatusBar } from "react-native"
 import { Feather } from "@expo/vector-icons"
 import IconText from "../components/IconText"
-const Farm = () =>{
+import { WeatherItem } from "../utils/types"
+
+const Farm = ({weatherData}:{weatherData: WeatherItem}) =>{
+const {main,dt,weather, wind} =weatherData
     const {container, imag, land, space, landspace, polWrap, polText, duskWrap, duskText, rowLayout} = styles
  return (
 <SafeAreaView style={container}>
     <ImageBackground source={require('../../assets/images/rice-terraces.jpg')} style={imag}>
-    <Text style={[land,landspace]}> Obasanjo's Farm</Text>
-    <Text style={[space, landspace]}>Ogun state</Text>
-    <Text style={[space, landspace]}>Product: Rice, Beans,Corn, Yam, Cassava and soon on...</Text>
+    <Text style={[land,landspace]}>{main.feels_like}</Text>
+    <Text style={[space, landspace]}>{dt}</Text>
+    <Text style={[space, landspace]}>{wind.speed}</Text>
     <View style={[polWrap, rowLayout]}>
-        <IconText iconName={'map'} iconColor={'white'} textBody={'Crop Mapping'} textBodyStyles={polText}/>  
+        <IconText iconName={'map'} iconColor={'white'} textBody={weather.icon} textBodyStyles={polText}/>  
         </View>
     <View style={[duskWrap,rowLayout]}>
-        <IconText iconName={'sunrise'} iconColor={'white'} textBody={'10:46:58am'} textBodyStyles={duskText}/> 
-        <IconText iconName={'sunset'} iconColor={'white'} textBody={'17:25:27pm'} textBodyStyles={duskText}/> 
+        <IconText iconName={'sunrise'} iconColor={'white'} textBody={weather.description} textBodyStyles={duskText}/> 
+        <IconText iconName={'sunset'} iconColor={'white'} textBody={weather.description} textBodyStyles={duskText}/> 
         </View>
   
     </ImageBackground>
