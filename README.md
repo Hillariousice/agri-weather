@@ -1,50 +1,61 @@
-# Welcome to your Expo app 👋
+# 🌾 Agri-Weather
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile app that helps farmers track real-time weather conditions and detect climate patterns affecting soil health — supporting smarter, data-informed farming decisions.
 
-## Get started
+🔗 **Live Demo:** [agri-weather.vercel.app](https://agri-weather.vercel.app)
 
-1. Install dependencies
+![Agri-Weather Preview](./assets/preview.png)
+<!-- Replace with an actual screenshot or screen recording GIF of the app -->
 
-   ```bash
-   npm install
-   ```
+## Overview
 
-2. Start the app
+Agri-Weather was built to give farmers direct access to real-time weather data relevant to soil and crop conditions, without needing to interpret generic weather apps not designed for agricultural use. The app surfaces the data points that matter most for farming decisions in a simple, accessible interface.
 
-   ```bash
-    npx expo start
-   ```
+## Features
 
-In the output, you'll find options to open the app in a
+- 🌦️ Real-time weather data via the OpenWeather API
+- 🌱 Insights tailored to soil and climate conditions relevant to farming
+- 📱 Cross-platform support for iOS and Android via Expo
+- ⚡ Fast, lightweight interface built for quick field use
+- 🧭 File-based routing for clean navigation structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Framework:** React Native (Expo)
+- **Language:** TypeScript, JavaScript
+- **API:** OpenWeather API
+- **Tooling:** ESLint, Prettier
 
-## Get a fresh project
+## Getting Started
 
-When you're ready, run:
+### Prerequisites
+- Node.js installed
+- Expo CLI (`npm install -g expo-cli`)
+- An OpenWeather API key ([get one here](https://openweathermap.org/api))
+
+### Installation
 
 ```bash
-npm run reset-project
+git clone https://github.com/Hillariousice/agri-weather.git
+cd agri-weather
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Run the App
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Scan the QR code with Expo Go, or run on a simulator/emulator.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## What I'd Improve Next
 
-## Join the community
+- Add historical weather trend charts for longer-term pattern detection
+- Implement push notifications for severe weather alerts
+- Add multi-location support for farmers managing multiple plots
 
-Join our community of developers creating universal apps.
+## Author
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Hillary Okporka**
+[Portfolio](https://myreact-portfolio.vercel.app) · [LinkedIn](https://linkedin.com/in/hillary-okporka-348a23182)
